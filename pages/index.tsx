@@ -1,13 +1,9 @@
 import Head from 'next/head';
+import styled from 'styled-components';
 import styles from '../styles/Home.module.css';
-import styled, { createGlobalStyle } from 'styled-components';
-import { myTheme } from '../my-theme';
 
-export const MyGlobalStyle = createGlobalStyle`
-  body {
-    color: blueviolet
-  }
-
+const ThemeText = styled.div`
+  color: ${(props) => props.theme.color.main};
 `;
 
 export default function Home() {
@@ -19,7 +15,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <span>aljdf;lkS</span>
-      <h1>lala</h1>
+      <ThemeText>Do you see this</ThemeText>
     </div>
   );
 }
