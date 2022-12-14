@@ -1,18 +1,13 @@
 import '../styles/globals.css';
 import type { AppProps } from 'next/app';
 import { MyGlobalStyle } from '../src/theme/globalStyles';
-import { ThemeProvider } from 'styled-components';
-
-import { useState } from 'react';
+import { ThemeProvider, useTheme } from 'styled-components';
 import { darkTheme, lightTheme } from '../src/theme/theme';
+import { useDarkMode } from '../src/utils/hooks/useDarkMode';
 
 export default function App({ Component, pageProps }: AppProps) {
-  const [themeMode, setThemeMode] = useState('light');
+  const [themeMode, toggleTheme] = useDarkMode();
   const theme = themeMode === 'light' ? lightTheme : darkTheme;
-
-  const toggleTheme = () => {
-    setThemeMode(themeMode === 'light' ? 'dark' : 'light');
-  };
 
   return (
     <>

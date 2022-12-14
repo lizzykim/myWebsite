@@ -4,8 +4,8 @@ const lightTheme: DefaultTheme = {
   borderRadius: '10px',
 
   color: {
-    main: '#1c1f25',
-    secondary: '#fff',
+    background: '#fff',
+    secondary: '#000000',
     third: 'gray',
   },
 };
@@ -14,7 +14,7 @@ const darkTheme: DefaultTheme = {
   borderRadius: '20px',
 
   color: {
-    main: '#45dddd',
+    background: '#45dddd',
     secondary: '#fff',
     third: 'pink',
   },
