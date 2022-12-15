@@ -1,6 +1,7 @@
 import React from 'react';
 import Head from 'next/head';
 import styled from 'styled-components';
+import Button from '@mui/material/Button';
 
 const ThemeText = styled.div`
   color: ${(props) => props.theme.color.secondary};
@@ -19,6 +20,7 @@ const homepage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <ThemeText>Do you see this</ThemeText>
+      <Button variant="contained">Hello MUI Button component?</Button>
     </Wrapper>
   );
 };
