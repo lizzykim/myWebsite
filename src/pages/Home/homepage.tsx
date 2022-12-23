@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import Button from '@mui/material/Button';
 
 const ThemeText = styled.div`
-  color: ${(props) => props.theme.color.secondary};
+  color: ${(props) => props.theme.color.paragraph};
 `;
 
 const Wrapper = styled.div`
