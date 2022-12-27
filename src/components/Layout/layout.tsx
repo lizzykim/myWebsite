@@ -1,5 +1,7 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled, { ThemeProvider } from 'styled-components';
+import { lightTheme, darkTheme } from '../../theme/theme';
+import { useDarkMode } from '../../utils/hooks/useDarkMode';
 import Footer from '../Footer';
 
 type LayoutProps = {
@@ -15,11 +17,15 @@ const StyledLayoutWrapper = styled.div`
 `;
 
 const Layout = ({ children }: LayoutProps) => {
+  const [themeMode, toggleTheme] = useDarkMode();
+  const theme = themeMode === 'light' ? lightTheme : darkTheme;
   return (
-    <StyledLayoutWrapper>
-      {children}
-      <Footer />
-    </StyledLayoutWrapper>
+    <ThemeProvider theme={theme}>
+      <StyledLayoutWrapper>
+        {children}
+        <Footer toggleTheme={toggleTheme} />
+      </StyledLayoutWrapper>
+    </ThemeProvider>
   );
 };
 

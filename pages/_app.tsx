@@ -8,20 +8,13 @@ import CssBaseline from '@mui/material/CssBaseline';
 import Layout from '../src/components/Layout';
 
 export default function App({ Component, pageProps }: AppProps) {
-  const [themeMode, toggleTheme] = useDarkMode();
-  const theme = themeMode === 'light' ? lightTheme : darkTheme;
-
   return (
     <>
-      <ThemeProvider theme={theme}>
-        <MyGlobalStyle />
-        <CssBaseline />
-        {/* TODO: Move this Switch Theme button */}
-        <button onClick={toggleTheme}>Switch Theme</button>
-        <Layout>
-          <Component {...pageProps} />
-        </Layout>
-      </ThemeProvider>
+      <MyGlobalStyle />
+      <CssBaseline />
+      <Layout>
+        <Component {...pageProps} />
+      </Layout>
     </>
   );
 }

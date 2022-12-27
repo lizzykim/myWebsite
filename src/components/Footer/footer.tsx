@@ -9,8 +9,13 @@ const StyledText = styled.div`
   color: ${(props) => props.theme.color.paragraph};
 `;
 
-const Footer = () => {
-  return <StyledText>Designed and Built by Dayoung Kim 🚀</StyledText>;
+const Footer = ({ toggleTheme }: any) => {
+  return (
+    <>
+      <button onClick={toggleTheme}>Switch Theme</button>
+      <StyledText>Designed and Built by Dayoung Kim 🚀</StyledText>
+    </>
+  );
 };
 
 export default Footer;
