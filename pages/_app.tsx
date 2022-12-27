@@ -5,6 +5,7 @@ import { ThemeProvider, useTheme } from 'styled-components';
 import { darkTheme, lightTheme } from '../src/theme/theme';
 import { useDarkMode } from '../src/utils/hooks/useDarkMode';
 import CssBaseline from '@mui/material/CssBaseline';
+import Layout from '../src/components/Layout';
 
 export default function App({ Component, pageProps }: AppProps) {
   const [themeMode, toggleTheme] = useDarkMode();
@@ -15,8 +16,11 @@ export default function App({ Component, pageProps }: AppProps) {
       <ThemeProvider theme={theme}>
         <MyGlobalStyle />
         <CssBaseline />
+        {/* TODO: Move this Switch Theme button */}
         <button onClick={toggleTheme}>Switch Theme</button>
-        <Component {...pageProps} />
+        <Layout>
+          <Component {...pageProps} />
+        </Layout>
       </ThemeProvider>
     </>
   );
