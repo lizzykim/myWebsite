@@ -11,7 +11,7 @@ type LayoutProps = {
 const StyledLayoutWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
+
   min-height: 100vh;
   background-color: ${(props) => props.theme.color.background};
 `;
@@ -22,7 +22,11 @@ const Layout = ({ children }: LayoutProps) => {
   return (
     <ThemeProvider theme={theme}>
       <StyledLayoutWrapper>
-        {children}
+        <main
+          style={{ flexGrow: 1, display: 'flex', justifyContent: 'center' }}
+        >
+          {children}
+        </main>
         <Footer toggleTheme={toggleTheme} />
       </StyledLayoutWrapper>
     </ThemeProvider>
