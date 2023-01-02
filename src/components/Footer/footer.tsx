@@ -7,12 +7,12 @@ const StyledText = styled.div`
   align-items: center;
   height: 70px;
   color: ${(props) => props.theme.color.paragraph};
+  font-weight: 600;
 `;
 
-const Footer = ({ toggleTheme }: any) => {
+const Footer = () => {
   return (
     <>
-      <button onClick={toggleTheme}>Switch Theme</button>
       <StyledText>Designed and Built by Dayoung Kim 🚀</StyledText>
     </>
   );

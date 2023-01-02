@@ -9,6 +9,7 @@ const ThemeText = styled.div`
 
 const Wrapper = styled.div`
   background-color: ${(props) => props.theme.color.background};
+  transition: background-color 0.25s linear;
 `;
 
 const homepage = () => {

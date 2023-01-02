@@ -16,8 +16,9 @@ export const MyGlobalStyle = createGlobalStyle`
   body {
     height: 100%;
     font-family: 'raleway';
-    font-size: 14px;
-    font-weight: 400;
+    font-size: 16px;
+    font-weight: 500;
+
   }
 
   h1,h2,h3,h4 {
