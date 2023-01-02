@@ -30,3 +30,9 @@ a {
   font-weight: 200;
   src: url('/fonts/Raleway-Regular.ttf') format('truetype');
 }
+
+@font-face {
+  font-family: 'bukhari';
+  font-weight: 200;
+  src: url('/fonts/BukhariScript-Regular.otf') format('truetype');
+}
