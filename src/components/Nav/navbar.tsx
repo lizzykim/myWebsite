@@ -1,5 +1,5 @@
-import React from 'react';
-import styled from 'styled-components';
+import React, { useEffect, useState } from 'react';
+import styled, { css } from 'styled-components';
 import { navLinks } from '../../config';
 import { IconButton } from '@material-ui/core';
 import LightModeOutlinedIcon from '@mui/icons-material/LightModeOutlined';
@@ -7,29 +7,63 @@ import DarkModeOutlinedIcon from '@mui/icons-material/DarkModeOutlined';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import device from '../../theme/breakpoints';
 import colors from '../../theme/colors';
+import useScrollDirection from '../../utils/hooks/useScrollDirection';
 
-const NavbarWrapper = styled.nav`
+type NavbarWrapperProps = {
+  scrolledToTop: boolean;
+  scrollDirection: string;
+};
+
+const NavbarWrapper = styled.nav<NavbarWrapperProps>`
   position: fixed;
   top: 0;
   display: flex;
   justify-content: space-between;
+  align-items: center;
   height: 100px;
   width: 100%;
   padding: 0px 50px;
-  border: 2px pink solid;
   color: ${(props) => props.theme.color.paragraph};
   background-color: ${(props) => props.theme.color.background};
-  transition: background-color 0.25s linear;
+  transition: all 0.25s linear;
+
+  ${(props) =>
+    props.scrollDirection === 'up' &&
+    !props.scrolledToTop &&
+    css`
+      height: 70px;
+      transform: translateY(0px);
+      box-shadow: 0 10px 30px -10px ${(props) => props.theme.color.background_shadow};
+    `}
+
+  ${(props) =>
+    props.scrollDirection === 'down' &&
+    !props.scrolledToTop &&
+    css`
+      height: 70px;
+      transform: translateY(calc(70px * -1));
+      box-shadow: 0 10px 30px -10px ${(props) => props.theme.color.background_shadow};
+    `}
 `;
 
-const Logo = styled.div`
+type LogoProps = {
+  active: boolean;
+};
+
+const Logo = styled.div<LogoProps>`
   font-family: 'bukhari';
   font-size: 50px;
   color: #e47c7c;
-  text-shadow: 2px 2px 2px white;
+  text-shadow: 2px 2px 2px ${colors.white};
+
+  ${(props) =>
+    props.active &&
+    css`
+      text-shadow: 3px 3px 3px ${colors.baby_blue};
+    `}
 `;
 
-const StyledNav = styled.span`
+const StyledNav = styled.div`
   display: flex;
   align-items: center;
   font-size: 20px;
@@ -38,6 +72,12 @@ const StyledNav = styled.span`
 
 const StyledNavText = styled.span`
   padding: 10px;
+  display: inline-block;
+  cursor: pointer;
+  transition: all 0.15s ease-in;
+  &:hover {
+    transform: translateY(-3px);
+  }
 `;
 
 type NavbarProps = {
@@ -47,10 +87,31 @@ type NavbarProps = {
 
 const Navbar = ({ toggleTheme, themeMode }: NavbarProps) => {
   const isDesktop = useMediaQuery(`${device.desktop}`);
+  const scrollDirection = useScrollDirection();
+  const [scrolledToTop, setScrolledToTop] = useState(true);
+
+  const handleScroll = () => {
+    setScrolledToTop(window.scrollY < 80);
+  };
+
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
 
   return (
-    <NavbarWrapper>
-      {isDesktop ? <Logo>L</Logo> : <span>This is too big</span>}
+    <NavbarWrapper
+      scrolledToTop={scrolledToTop}
+      scrollDirection={scrollDirection}
+    >
+      {isDesktop ? (
+        <Logo active={themeMode === 'light'}>L</Logo>
+      ) : (
+        <span>This is too big</span>
+      )}
       <StyledNav>
         <ol>
           {navLinks.map(({ name }, i) => (
