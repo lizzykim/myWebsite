@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { RevealWrapper } from 'next-reveal';
 import { scrollRevealOptions } from '../../../config';
 
-const AboutWrapper = styled.div`
+const IntroWrapper = styled.div`
   height: 700px;
   width: 100%;
   padding: 400px 100px 0px 100px;
@@ -34,11 +34,9 @@ const StyledButton = styled.button`
   }
 `;
 
-const About = () => {
-  useEffect(() => {});
-
+const Intro = () => {
   return (
-    <AboutWrapper>
+    <IntroWrapper>
       <RevealWrapper className="load-hidden" {...scrollRevealOptions}>
         <StyledText>
           Hello, My name is
@@ -49,8 +47,8 @@ const About = () => {
         </StyledText>
       </RevealWrapper>
       <StyledButton>Resume</StyledButton>
-    </AboutWrapper>
+    </IntroWrapper>
   );
 };
 
-export default About;
+export default Intro;

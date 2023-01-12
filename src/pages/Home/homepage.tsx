@@ -1,7 +1,7 @@
 import React from 'react';
 import Head from 'next/head';
 import styled from 'styled-components';
-import About from '../../components/Sections/About';
+import About from '../../components/Sections/Intro';
 
 const Wrapper = styled.div`
   background-color: ${(props) => props.theme.color.background};
