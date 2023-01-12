@@ -36,3 +36,9 @@ a {
   font-weight: 200;
   src: url('/fonts/BukhariScript-Regular.otf') format('truetype');
 }
+
+@font-face {
+  font-family: 'inter';
+  font-weight: 200;
+  src: url('/fonts/Inter-Regular.ttf') format('truetype');
+}
