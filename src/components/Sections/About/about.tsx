@@ -39,7 +39,7 @@ const About = () => {
 
   return (
     <AboutWrapper>
-      <RevealWrapper {...scrollRevealOptions}>
+      <RevealWrapper className="load-hidden" {...scrollRevealOptions}>
         <StyledText>
           Hello, My name is
           <br />
