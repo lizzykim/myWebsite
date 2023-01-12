@@ -1,6 +1,7 @@
 const colors = {
   beige: '#FEF6E4',
   dark_beige: '#d4cbba',
+  light_beige: '#fffdfa',
   navy: '#001858',
   light_navy: '#001858',
   dark_navy: '#141624',
@@ -9,6 +10,7 @@ const colors = {
   baby_pink: '#EEBBC3',
   baby_blue: '#8BD3DD',
   ash: '#232946',
+  light_ash: '#464e73',
   white: '#FFFFFE',
 };
 

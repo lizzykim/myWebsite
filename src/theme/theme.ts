@@ -7,6 +7,7 @@ const lightTheme: DefaultTheme = {
   color: {
     background: colors.beige,
     background_shadow: colors.dark_beige,
+    background_light_shadow: colors.light_beige,
     headline: colors.navy,
     paragraph: colors.navy,
     button: colors.pink,
@@ -20,6 +21,7 @@ const darkTheme: DefaultTheme = {
   color: {
     background: colors.ash,
     background_shadow: colors.dark_navy,
+    background_light_shadow: colors.light_ash,
     headline: colors.white,
     paragraph: colors.light_navy_2,
     button: colors.baby_pink,

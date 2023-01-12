@@ -67,7 +67,7 @@ const StyledNav = styled.div`
   display: flex;
   align-items: center;
   font-size: 20px;
-  font-weight: 600;
+  font-weight: 500;
 `;
 
 const StyledNavText = styled.span`
