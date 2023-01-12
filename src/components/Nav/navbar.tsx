@@ -7,7 +7,7 @@ import DarkModeOutlinedIcon from '@mui/icons-material/DarkModeOutlined';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import device from '../../theme/breakpoints';
 import colors from '../../theme/colors';
-import useScrollDirection from '../../utils/hooks/useScrollDirection';
+import useScrollDirection from '../../hooks/useScrollDirection';
 
 type NavbarWrapperProps = {
   scrolledToTop: boolean;
