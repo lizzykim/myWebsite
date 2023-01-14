@@ -17,11 +17,12 @@ type NavbarWrapperProps = {
 const NavbarWrapper = styled.nav<NavbarWrapperProps>`
   position: fixed;
   top: 0;
+  z-index: 2;
   display: flex;
   justify-content: space-between;
   align-items: center;
   height: 100px;
-  width: 100%;
+  width: 100vw;
   padding: 0px 50px;
   color: ${(props) => props.theme.color.paragraph};
   background-color: ${(props) => props.theme.color.background};

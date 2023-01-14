@@ -4,9 +4,13 @@ import { RevealWrapper } from 'next-reveal';
 import { scrollRevealOptions } from '../../../config';
 
 const IntroWrapper = styled.div`
-  height: 700px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100vh;
   width: 100%;
-  padding: 400px 100px 0px 100px;
+  padding: 100px 100px 0px 100px;
+  border: 2px solid red;
 `;
 
 const StyledText = styled.div`
