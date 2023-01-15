@@ -50,7 +50,9 @@ const Intro = () => {
           I’m a Junior Frontend Developer
         </StyledText>
       </RevealWrapper>
-      <StyledButton>Resume</StyledButton>
+      <a href="/Resume.pdf" target="_blank" rel="noopener noreferrer">
+        <StyledButton>Resume</StyledButton>
+      </a>
     </IntroWrapper>
   );
 };
