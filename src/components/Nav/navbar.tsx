@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import Link from 'next/link';
 import styled, { css } from 'styled-components';
 import { navLinks } from '../../config';
 import { IconButton } from '@material-ui/core';
@@ -115,9 +116,11 @@ const Navbar = ({ toggleTheme, themeMode }: NavbarProps) => {
       )}
       <StyledNav>
         <ol>
-          {navLinks.map(({ name }, i) => (
+          {navLinks.map(({ name, url }, i) => (
             <StyledNavText key={i}>
-              0{i + 1}.{name}
+              <Link href={url}>
+                0{i + 1}.{name}
+              </Link>
             </StyledNavText>
           ))}
         </ol>

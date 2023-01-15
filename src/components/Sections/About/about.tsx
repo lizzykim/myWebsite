@@ -35,7 +35,7 @@ const SummaryWrapper = styled.div`
 
 const StyledTitle = styled.div`
   color: ${(props) => props.theme.color.paragraph};
-  font-size: 30px;
+  font-size: 25px;
   padding-bottom: 10px;
   font-weight: bold;
 `;
@@ -43,12 +43,12 @@ const StyledTitle = styled.div`
 const StyledText = styled.div`
   max-width: 600px;
   color: ${(props) => props.theme.color.paragraph};
-  font-size: 18px;
+  font-size: 16px;
 `;
 
 const About = () => {
   return (
-    <AboutWrapper>
+    <AboutWrapper id="about">
       <ImageSummaryWrapper>
         <StyledImage
           height={350}
