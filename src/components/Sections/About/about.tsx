@@ -13,18 +13,14 @@ const AboutWrapper = styled.div`
 
 const ImageSummaryWrapper = styled.div`
   display: flex;
+  justify-content: center;
   align-items: center;
-  gap: 100px;
+  width: 100%;
+  gap: 300px;
 `;
 
 const StyledImage = styled.img`
   border-radius: 20px;
-
-  :hover {
-    height: 350px;
-    transform: rotateY(180deg);
-    transition: 1s;
-  }
 `;
 
 const SummaryWrapper = styled.div`
@@ -50,11 +46,22 @@ const About = () => {
   return (
     <AboutWrapper id="about">
       <ImageSummaryWrapper>
-        <StyledImage
-          height={350}
-          alt="profileImange"
-          src="img/profileAnime.png"
-        />
+        <div className="card">
+          <div className="card-front">
+            <StyledImage
+              height={350}
+              alt="profileImange"
+              src="img/profileAnime.png"
+            />
+          </div>
+          <div className="card-back">
+            <StyledImage
+              height={350}
+              alt="profileImange"
+              src="img/profile.png"
+            />
+          </div>
+        </div>
         <RevealWrapper className="load-hidden" {...scrollRevealOptions}>
           <SummaryWrapper>
             <div>

@@ -3,7 +3,6 @@ import type { AppProps } from 'next/app';
 import { MyGlobalStyle } from '../src/theme/globalStyles';
 import { ThemeProvider, useTheme } from 'styled-components';
 import { darkTheme, lightTheme } from '../src/theme/theme';
-import { useDarkMode } from '../src/utils/hooks/useDarkMode';
 import CssBaseline from '@mui/material/CssBaseline';
 import Layout from '../src/components/Layout';
 
