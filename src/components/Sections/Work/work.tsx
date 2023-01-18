@@ -2,7 +2,8 @@ import React from 'react';
 import styled from 'styled-components';
 import Timelineitem from './timelineitem';
 import { timeLineData } from './timelinedata';
-
+import { RevealWrapper } from 'next-reveal';
+import { scrollRevealOptions } from '../../../config';
 const WorkWrapper = styled.div`
   display: flex;
   align-items: center;
@@ -21,11 +22,13 @@ const TimelineList = styled.ul`
 const Work = () => {
   return (
     <WorkWrapper id="experience">
-      <TimelineList>
-        {timeLineData.map((data) => (
-          <Timelineitem {...data} />
-        ))}
-      </TimelineList>
+      <RevealWrapper className="load-hidden" {...scrollRevealOptions}>
+        <TimelineList>
+          {timeLineData.map((data) => (
+            <Timelineitem {...data} />
+          ))}
+        </TimelineList>
+      </RevealWrapper>
     </WorkWrapper>
   );
 };
