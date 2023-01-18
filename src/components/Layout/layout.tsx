@@ -1,7 +1,7 @@
 import React from 'react';
 import styled, { ThemeProvider } from 'styled-components';
 import { lightTheme, darkTheme } from '../../theme/theme';
-import { useDarkMode } from '../../utils/hooks/useDarkMode';
+import { useDarkMode } from '../../hooks/useDarkMode';
 import Footer from '../Footer';
 import Navbar from '../Nav';
 

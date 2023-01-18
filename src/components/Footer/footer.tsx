@@ -7,7 +7,7 @@ const StyledText = styled.div`
   align-items: center;
   height: 70px;
   color: ${(props) => props.theme.color.paragraph};
-  font-weight: 600;
+  font-weight: 400;
 `;
 
 const Footer = () => {

@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import Link from 'next/link';
 import styled, { css } from 'styled-components';
 import { navLinks } from '../../config';
 import { IconButton } from '@material-ui/core';
@@ -7,7 +8,7 @@ import DarkModeOutlinedIcon from '@mui/icons-material/DarkModeOutlined';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import device from '../../theme/breakpoints';
 import colors from '../../theme/colors';
-import useScrollDirection from '../../utils/hooks/useScrollDirection';
+import useScrollDirection from '../../hooks/useScrollDirection';
 
 type NavbarWrapperProps = {
   scrolledToTop: boolean;
@@ -17,11 +18,12 @@ type NavbarWrapperProps = {
 const NavbarWrapper = styled.nav<NavbarWrapperProps>`
   position: fixed;
   top: 0;
+  z-index: 2;
   display: flex;
   justify-content: space-between;
   align-items: center;
   height: 100px;
-  width: 100%;
+  width: 100vw;
   padding: 0px 50px;
   color: ${(props) => props.theme.color.paragraph};
   background-color: ${(props) => props.theme.color.background};
@@ -67,7 +69,7 @@ const StyledNav = styled.div`
   display: flex;
   align-items: center;
   font-size: 20px;
-  font-weight: 600;
+  font-weight: 500;
 `;
 
 const StyledNavText = styled.span`
@@ -114,9 +116,11 @@ const Navbar = ({ toggleTheme, themeMode }: NavbarProps) => {
       )}
       <StyledNav>
         <ol>
-          {navLinks.map(({ name }, i) => (
+          {navLinks.map(({ name, url }, i) => (
             <StyledNavText key={i}>
-              0{i + 1}.{name}
+              <Link href={url}>
+                0{i + 1}.{name}
+              </Link>
             </StyledNavText>
           ))}
         </ol>

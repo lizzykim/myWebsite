@@ -5,7 +5,7 @@ export default class MyDocument extends Document {
   static getInitialProps: (ctx: any) => Promise<any>;
   render() {
     return (
-      <Html>
+      <Html className="sr">
         <Head />
         <body>
           <Main />
