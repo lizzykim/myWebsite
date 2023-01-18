@@ -30,7 +30,7 @@ const SummaryWrapper = styled.div`
 `;
 
 const StyledTitle = styled.div`
-  color: ${(props) => props.theme.color.paragraph};
+  color: ${(props) => props.theme.color.headline};
   font-size: 25px;
   padding-bottom: 10px;
   font-weight: bold;
