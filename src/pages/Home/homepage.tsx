@@ -3,6 +3,7 @@ import Head from 'next/head';
 import styled from 'styled-components';
 import Intro from '../../components/Sections/Intro';
 import About from '../../components/Sections/About';
+import Work from '../../components/Sections/Work';
 
 const Wrapper = styled.div`
   background-color: ${(props) => props.theme.color.background};
@@ -20,6 +21,7 @@ const homepage = () => {
       </Head>
       <Intro />
       <About />
+      <Work />
     </Wrapper>
   );
 };
