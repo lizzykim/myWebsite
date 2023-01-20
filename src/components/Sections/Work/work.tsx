@@ -25,7 +25,7 @@ const Work = () => {
       <RevealWrapper className="load-hidden" {...scrollRevealOptions}>
         <TimelineList>
           {timeLineData.map((data) => (
-            <Timelineitem {...data} />
+            <Timelineitem key={data.date} {...data} />
           ))}
         </TimelineList>
       </RevealWrapper>
