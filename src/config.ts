@@ -6,7 +6,7 @@ type navLinkProps = {
 const navLinks: navLinkProps[] = [
   { name: 'About', url: '#about' },
   { name: 'Experience', url: '#experience' },
-  { name: 'Work', url: '#work' },
+  { name: 'Projects', url: '#projects' },
   { name: 'Contact', url: '#contact' },
 ];
 
