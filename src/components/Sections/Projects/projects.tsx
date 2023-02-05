@@ -1,5 +1,4 @@
 import React from 'react';
-import Image from 'next/image';
 import styled from 'styled-components';
 import { ProjectsData, projectsData } from './projectsdata';
 import ProjectItem from './projectitem';
@@ -22,22 +21,21 @@ const StyledParagraph = styled.div`
   font-weight: 700;
 `;
 
+const StyledProjectItemWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 200px;
+`;
+
 const Projects = () => {
   return (
     <ProjectsWrapper id="projects">
       <StyledParagraph>Projects</StyledParagraph>
-      <div
-        style={{
-          display: 'flex',
-          flexDirection: 'column',
-          border: '7px purple solid',
-          gap: '200px',
-        }}
-      >
+      <StyledProjectItemWrapper>
         {projectsData.map((data: ProjectsData) => (
           <ProjectItem key={data.title} {...data} />
         ))}
-      </div>
+      </StyledProjectItemWrapper>
     </ProjectsWrapper>
   );
 };

@@ -4,12 +4,14 @@ import Image from 'next/image';
 import { ProjectsData } from './projectsdata';
 
 const StyledProjectWrapper = styled.div`
-  /* display: flex; */
-  /* gap: 20px;
-  flex-wrap: wrap; */
   position: relative;
-  border: 2px red solid;
-  /* justify-content: center; */
+`;
+
+const StyledProjectRelativeWrapper = styled.div`
+  position: relative;
+  left: 15%;
+  display: flex;
+  width: fit-content;
 `;
 
 const StyledCardWrapper = styled.div`
@@ -29,26 +31,6 @@ const StyleTitle = styled.div`
   color: ${(props) => props.theme.color.card_heading};
   font-size: 30px;
   font-weight: 700;
-`;
-
-const StyledSkillsWrapper = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  align-items: flex-end;
-  justify-content: space-around;
-  font-weight: 700;
-`;
-
-const StyledSkill = styled.div`
-  padding: 0px 5px;
-`;
-
-const StyledNotionAnchor = styled.a`
-  align-self: center;
-  :hover {
-    transform: translateY(-10px);
-    transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
-  }
 `;
 
 const StyledDescription = styled.div`
@@ -81,20 +63,32 @@ const StyledDescription = styled.div`
   }
 `;
 
+const StyledSkillsWrapper = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-around;
+  font-weight: 700;
+`;
+
+const StyledSkill = styled.div`
+  padding: 0px 5px;
+`;
+
+const StyledNotionAnchor = styled.a`
+  align-self: center;
+  :hover {
+    transform: translateY(-10px);
+    transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
+  }
+`;
+
 const ProjectItem = (props: ProjectsData) => {
   return (
     <StyledProjectWrapper>
-      <div
-        style={{
-          position: 'relative',
-          left: '15%',
-          display: 'flex',
-          width: 'fit-content',
-          //   border: '4px yellow solid',
-        }}
-      >
+      <StyledProjectRelativeWrapper>
         <StyledCardWrapper>
-          <Image src={props.img} alt="projectimg" layout="fill" />
+          <Image src={props.img} alt="projectImg" layout="fill" />
           <StyledDescription>
             <StyleTitle>{props.title}</StyleTitle>
             {props.summary}
@@ -118,7 +112,7 @@ const ProjectItem = (props: ProjectsData) => {
             </StyledNotionAnchor>
           </StyledDescription>
         </StyledCardWrapper>
-      </div>
+      </StyledProjectRelativeWrapper>
     </StyledProjectWrapper>
   );
 };
