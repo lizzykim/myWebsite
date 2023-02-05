@@ -3,6 +3,7 @@ import Head from 'next/head';
 import styled from 'styled-components';
 import Intro from '../../components/Sections/Intro';
 import About from '../../components/Sections/About';
+import Projects from '../../components/Sections/Projects';
 import Work from '../../components/Sections/Work';
 
 const Wrapper = styled.div`
@@ -22,6 +23,7 @@ const homepage = () => {
       <Intro />
       <About />
       <Work />
+      <Projects />
     </Wrapper>
   );
 };

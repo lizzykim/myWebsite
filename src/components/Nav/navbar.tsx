@@ -33,7 +33,7 @@ const NavbarWrapper = styled.nav<NavbarWrapperProps>`
     props.scrollDirection === 'up' &&
     !props.scrolledToTop &&
     css`
-      height: 70px;
+      height: 80px;
       transform: translateY(0px);
       box-shadow: 0 10px 30px -10px ${(props) => props.theme.color.background_shadow};
     `}
@@ -42,7 +42,7 @@ const NavbarWrapper = styled.nav<NavbarWrapperProps>`
     props.scrollDirection === 'down' &&
     !props.scrolledToTop &&
     css`
-      height: 70px;
+      height: 80px;
       transform: translateY(calc(70px * -1));
       box-shadow: 0 10px 30px -10px ${(props) => props.theme.color.background_shadow};
     `}
@@ -88,7 +88,7 @@ type NavbarProps = {
 };
 
 const Navbar = ({ toggleTheme, themeMode }: NavbarProps) => {
-  const isDesktop = useMediaQuery(`${device.desktop}`);
+  // const isDesktop = useMediaQuery(`${device.desktop}`);
   const scrollDirection = useScrollDirection();
   const [scrolledToTop, setScrolledToTop] = useState(true);
 
@@ -109,11 +109,12 @@ const Navbar = ({ toggleTheme, themeMode }: NavbarProps) => {
       scrolledToTop={scrolledToTop}
       scrollDirection={scrollDirection}
     >
-      {isDesktop ? (
+      {/* {isDesktop ? (
         <Logo active={themeMode === 'light'}>L</Logo>
       ) : (
         <span>This is too big</span>
-      )}
+      )} */}
+      <Logo active={themeMode === 'light'}>L</Logo>
       <StyledNav>
         <ol>
           {navLinks.map(({ name, url }, i) => (
