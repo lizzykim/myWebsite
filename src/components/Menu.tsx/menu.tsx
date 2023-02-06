@@ -100,7 +100,7 @@ const StyledAsidebar = styled.aside<StyledHamburgerButtonProps>`
     display: flex;
     align-items: center;
     position: fixed;
-    top: 0;
+    top: 80px;
     bottom: 0;
     right: 0;
     padding: 80px 10px;
