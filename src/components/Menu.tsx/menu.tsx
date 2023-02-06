@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import Link from 'next/link';
 import styled from 'styled-components';
 import device from '../../theme/breakpoints';
@@ -7,6 +7,7 @@ import { IconButton } from '@material-ui/core';
 import LightModeOutlinedIcon from '@mui/icons-material/LightModeOutlined';
 import DarkModeOutlinedIcon from '@mui/icons-material/DarkModeOutlined';
 import colors from '../../theme/colors';
+import useOnClickOutSide from '../../hooks/useOnClickOutside';
 
 const StyledMenu = styled.div`
   display: none;
@@ -142,46 +143,51 @@ type MenuProps = {
 
 const Menu = ({ toggleTheme, themeMode }: MenuProps) => {
   const [menuOpen, setMenuOpen] = useState(false);
+  const wrapperRef = useRef(null);
+
+  useOnClickOutSide(wrapperRef, () => setMenuOpen(false));
 
   const toggleMenu = () => setMenuOpen((menuOpen) => !menuOpen);
 
   return (
     <StyledMenu>
-      <StyledHamburgerButton onClick={toggleMenu} menuOpen={menuOpen}>
-        <div className="ham-box">
-          <div className="ham-box-inner" />
-        </div>
-      </StyledHamburgerButton>
-      <StyledAsidebar menuOpen={menuOpen}>
-        <StyledAsideNavWrapper>
-          <ol style={{ padding: 0 }}>
-            {navLinks.map(({ name, url }, i) => (
-              <StyledAsideNavText key={i}>
-                <Link href={url}>
-                  0{i + 1}.{name}
-                </Link>
-              </StyledAsideNavText>
-            ))}
-          </ol>
-          {themeMode === 'light' ? (
-            <IconButton
-              aria-label="mode"
-              onClick={toggleTheme}
-              style={{ color: `${colors.light_navy}` }}
-            >
-              <DarkModeOutlinedIcon fontSize="medium" />
-            </IconButton>
-          ) : (
-            <IconButton
-              aria-label="mode"
-              onClick={toggleTheme}
-              style={{ color: `${colors.light_navy_2}` }}
-            >
-              <LightModeOutlinedIcon fontSize="medium" />
-            </IconButton>
-          )}
-        </StyledAsideNavWrapper>
-      </StyledAsidebar>
+      <div ref={wrapperRef}>
+        <StyledHamburgerButton onClick={toggleMenu} menuOpen={menuOpen}>
+          <div className="ham-box">
+            <div className="ham-box-inner" />
+          </div>
+        </StyledHamburgerButton>
+        <StyledAsidebar menuOpen={menuOpen}>
+          <StyledAsideNavWrapper>
+            <ol style={{ padding: 0 }}>
+              {navLinks.map(({ name, url }, i) => (
+                <StyledAsideNavText key={i} onClick={toggleMenu}>
+                  <Link href={url}>
+                    0{i + 1}.{name}
+                  </Link>
+                </StyledAsideNavText>
+              ))}
+            </ol>
+            {themeMode === 'light' ? (
+              <IconButton
+                aria-label="mode"
+                onClick={toggleTheme}
+                style={{ color: `${colors.light_navy}` }}
+              >
+                <DarkModeOutlinedIcon fontSize="medium" />
+              </IconButton>
+            ) : (
+              <IconButton
+                aria-label="mode"
+                onClick={toggleTheme}
+                style={{ color: `${colors.light_navy_2}` }}
+              >
+                <LightModeOutlinedIcon fontSize="medium" />
+              </IconButton>
+            )}
+          </StyledAsideNavWrapper>
+        </StyledAsidebar>
+      </div>
     </StyledMenu>
   );
 };
