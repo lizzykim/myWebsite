@@ -9,6 +9,7 @@ import useMediaQuery from '@mui/material/useMediaQuery';
 import device from '../../theme/breakpoints';
 import colors from '../../theme/colors';
 import useScrollDirection from '../../hooks/useScrollDirection';
+import Menu from '../Menu.tsx/menu';
 
 type NavbarWrapperProps = {
   scrolledToTop: boolean;
@@ -27,7 +28,7 @@ const NavbarWrapper = styled.nav<NavbarWrapperProps>`
   padding: 0px 50px;
   color: ${(props) => props.theme.color.paragraph};
   background-color: ${(props) => props.theme.color.background};
-  transition: all 0.25s linear;
+  transition: all 0.35s linear;
 
   ${(props) =>
     props.scrollDirection === 'up' &&
@@ -46,6 +47,10 @@ const NavbarWrapper = styled.nav<NavbarWrapperProps>`
       transform: translateY(calc(70px * -1));
       box-shadow: 0 10px 30px -10px ${(props) => props.theme.color.background_shadow};
     `}
+
+    @media ${device.tablet} {
+    padding: 0px 30px;
+  }
 `;
 
 type LogoProps = {
@@ -70,6 +75,10 @@ const StyledNav = styled.div`
   align-items: center;
   font-size: 20px;
   font-weight: 500;
+
+  @media ${device.tablet} {
+    display: none;
+  }
 `;
 
 const StyledNavText = styled.span`
@@ -143,6 +152,7 @@ const Navbar = ({ toggleTheme, themeMode }: NavbarProps) => {
           </IconButton>
         )}
       </StyledNav>
+      <Menu toggleTheme={toggleTheme} themeMode={themeMode} />
     </NavbarWrapper>
   );
 };
