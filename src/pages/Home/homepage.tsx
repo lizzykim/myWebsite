@@ -21,7 +21,7 @@ const homepage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Intro />
-      {/* <About /> */}
+      <About />
       <Work />
       {/* <Projects /> */}
     </Wrapper>

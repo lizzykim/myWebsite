@@ -13,11 +13,11 @@ const WorkWrapper = styled.div`
   width: 100%;
 
   @media ${device.tablet} {
-    padding: 0px 30px 0px 30px;
+    padding: 30px 30px 30px 30px;
   }
 
   @media ${device.mobile} {
-    padding: 0px 20px 0px 20px;
+    padding: 30px 20px 30px 20px;
   }
 `;
 
