@@ -2,9 +2,14 @@ import React from 'react';
 import styled from 'styled-components';
 import Image from 'next/image';
 import { ProjectsData } from './projectsdata';
+import device from '../../../theme/breakpoints';
 
 const StyledProjectWrapper = styled.div`
   position: relative;
+
+  @media (max-width: 1340px) {
+    position: static;
+  }
 `;
 
 const StyledProjectRelativeWrapper = styled.div`
@@ -12,18 +17,33 @@ const StyledProjectRelativeWrapper = styled.div`
   left: 15%;
   display: flex;
   width: fit-content;
+
+  @media (max-width: 1340px) {
+    position: static;
+  }
 `;
 
 const StyledCardWrapper = styled.div`
   width: 500px;
-  /* position: unset !important; */
   position: relative;
+
+  @media (max-width: 1340px) {
+    width: 100%;
+    position: static;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
 
   img {
     opacity: 0.8;
     height: auto !important;
     position: relative !important;
     border-radius: 5px;
+
+    @media (max-width: 1340px) {
+      border-radius: 15px;
+    }
   }
 `;
 
@@ -31,6 +51,10 @@ const StyleTitle = styled.div`
   color: ${(props) => props.theme.color.card_heading};
   font-size: 30px;
   font-weight: 700;
+
+  @media ${device.mobile} {
+    font-size: 20px;
+  }
 `;
 
 const StyledDescription = styled.div`
@@ -60,6 +84,16 @@ const StyledDescription = styled.div`
 
   :hover ${StyleTitle} {
     color: ${(props) => props.theme.color.card_hover_text};
+  }
+
+  @media (max-width: 1340px) {
+    position: static;
+    width: 100%;
+    font-size: 15px;
+    align-items: center;
+    height: fit-content;
+    gap: 10px;
+    padding: 15px;
   }
 `;
 

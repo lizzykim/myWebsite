@@ -23,7 +23,7 @@ const homepage = () => {
       <Intro />
       <About />
       <Work />
-      {/* <Projects /> */}
+      <Projects />
     </Wrapper>
   );
 };
