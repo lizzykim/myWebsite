@@ -3,6 +3,8 @@ import styled from 'styled-components';
 import Image from 'next/image';
 import { ProjectsData } from './projectsdata';
 import device from '../../../theme/breakpoints';
+import { RevealWrapper } from 'next-reveal';
+import { scrollRevealOptions } from '../../../config';
 
 const StyledProjectWrapper = styled.div`
   position: relative;
@@ -120,33 +122,35 @@ const StyledNotionAnchor = styled.a`
 const ProjectItem = (props: ProjectsData) => {
   return (
     <StyledProjectWrapper>
-      <StyledProjectRelativeWrapper>
-        <StyledCardWrapper>
-          <Image src={props.img} alt="projectImg" layout="fill" />
-          <StyledDescription>
-            <StyleTitle>{props.title}</StyleTitle>
-            {props.summary}
-            <StyledSkillsWrapper>
-              {props.skills.map((skill) => (
-                <StyledSkill key={skill}>{skill}</StyledSkill>
-              ))}
-            </StyledSkillsWrapper>
-            <StyledNotionAnchor
-              href={props.link}
-              target="_blank"
-              rel="noopener noreferrer"
-              style={{ alignSelf: 'center' }}
-            >
-              <Image
-                src="/img/notion.png"
-                alt="notion"
-                width={30}
-                height={30}
-              />
-            </StyledNotionAnchor>
-          </StyledDescription>
-        </StyledCardWrapper>
-      </StyledProjectRelativeWrapper>
+      <RevealWrapper className="load-hidden" {...scrollRevealOptions}>
+        <StyledProjectRelativeWrapper>
+          <StyledCardWrapper>
+            <Image src={props.img} alt="projectImg" layout="fill" />
+            <StyledDescription>
+              <StyleTitle>{props.title}</StyleTitle>
+              {props.summary}
+              <StyledSkillsWrapper>
+                {props.skills.map((skill) => (
+                  <StyledSkill key={skill}>{skill}</StyledSkill>
+                ))}
+              </StyledSkillsWrapper>
+              <StyledNotionAnchor
+                href={props.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{ alignSelf: 'center' }}
+              >
+                <Image
+                  src="/img/notion.png"
+                  alt="notion"
+                  width={30}
+                  height={30}
+                />
+              </StyledNotionAnchor>
+            </StyledDescription>
+          </StyledCardWrapper>
+        </StyledProjectRelativeWrapper>
+      </RevealWrapper>
     </StyledProjectWrapper>
   );
 };

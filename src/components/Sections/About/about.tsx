@@ -1,7 +1,43 @@
 import styled from 'styled-components';
+import css from 'styled-jsx/css';
 import { RevealWrapper } from 'next-reveal';
 import { scrollRevealOptions } from '../../../config';
 import device from '../../../theme/breakpoints';
+
+const style = css`
+  .flip-card {
+    background-color: transparent;
+    width: 260.36px;
+    height: 350px;
+    perspective: 1000px;
+  }
+
+  .flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+  }
+
+  .flip-card:hover .flip-card-inner {
+    transform: rotateY(180deg);
+  }
+
+  .flip-card-front,
+  .flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden; /* Safari */
+    backface-visibility: hidden;
+  }
+
+  .flip-card-back {
+    transform: rotateY(180deg);
+  }
+`;
 
 const AboutWrapper = styled.div`
   display: flex;
@@ -35,42 +71,12 @@ const ImageSummaryWrapper = styled.div`
   }
 `;
 
-const StyledImage = styled.img`
+const StyledImageFront = styled.img`
   border-radius: 20px;
 `;
 
-const CardFront = styled.div`
-  position: absolute;
-  width: 260px;
-  height: 100%;
-  left: 50%;
-  transition: transform 0.9s cubic-bezier(0.4, 0, 0.2, 1);
-  backface-visibility: hidden;
-  &:hover {
-    transform: rotateY(180deg);
-  }
-`;
-
-const CardBack = styled.div`
-  position: absolute;
-  width: 260px;
-  height: 100%;
-  /* left: 50%; */
-  transition: transform 0.9s cubic-bezier(0.4, 0, 0.2, 1);
-  backface-visibility: hidden;
-  transform: rotateY(180deg);
-
-  &:hover {
-    transform: rotateY(0);
-  }
-`;
-
-const CardWrapper = styled.div`
-  position: relative;
-  display: flex;
-  height: 350px;
-  cursor: pointer;
-  justify-content: center;
+const StyledImageBack = styled.img`
+  border-radius: 20px;
 `;
 
 const SummaryWrapper = styled.div`
@@ -108,47 +114,25 @@ const About = () => {
   return (
     <AboutWrapper id="about">
       <ImageSummaryWrapper>
-        {/* <div style={{ border: '5px red solid' }}>
-          <div className="card">
-            <div className="card-front">
-              <StyledImage
+        <div className="flip-card">
+          <div className="flip-card-inner">
+            <div className="flip-card-front">
+              <StyledImageFront
                 height={350}
                 alt="profileImage"
                 src="img/profileAnime.png"
               />
             </div>
-            <div className="card-back">
-              <StyledImage
+            <div className="flip-card-back">
+              <StyledImageBack
                 height={350}
                 alt="profileImage"
                 src="img/profile.png"
               />
             </div>
           </div>
-        </div> */}
-        {/* <div style={{ border: '5px red solid' }}>
-          <CardWrapper>
-            <CardFront>
-              <StyledImage
-                height={350}
-                alt="profileImage"
-                src="img/profileAnime.png"
-              />
-            </CardFront>
-            <CardBack>
-              <StyledImage
-                height={350}
-                alt="profileImage"
-                src="img/profile.png"
-              />
-            </CardBack>
-          </CardWrapper>
-        </div> */}
-        <StyledImage
-          height={350}
-          alt="profileImage"
-          src="img/profileAnime.png"
-        />
+        </div>
+        <style jsx>{style}</style>
         <SummaryWrapper>
           <RevealWrapper className="load-hidden" {...scrollRevealOptions}>
             <StyledTitle>Who am I?</StyledTitle>
