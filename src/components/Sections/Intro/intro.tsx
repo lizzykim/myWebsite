@@ -2,6 +2,8 @@ import { useEffect } from 'react';
 import styled from 'styled-components';
 import { RevealWrapper } from 'next-reveal';
 import { scrollRevealOptions } from '../../../config';
+import React from 'react';
+import device from '../../../theme/breakpoints';
 
 const IntroWrapper = styled.div`
   display: flex;
@@ -9,16 +11,32 @@ const IntroWrapper = styled.div`
   justify-content: center;
   height: 100vh;
   width: 100%;
+  font-size: 40px;
   padding: 100px 100px 0px 100px;
-  border: 2px solid red;
+
+  @media ${device.tablet} {
+    padding: 0px 30px 0px 30px;
+  }
+
+  @media ${device.mobile} {
+    padding: 0px 20px 0px 20px;
+  }
 `;
 
 const StyledText = styled.div`
   font-family: 'inter';
-  font-size: 40px;
   font-weight: 600;
   color: ${(props) => props.theme.color.paragraph};
   margin-bottom: 30px;
+
+  @media ${device.tablet} {
+    font-size: 0.8em;
+  }
+
+  @media ${device.mobile} {
+    font-size: 0.55em;
+    margin-bottom: 10px;
+  }
 `;
 
 const StyledButton = styled.button`

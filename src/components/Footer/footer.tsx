@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import device from '../../theme/breakpoints';
 
 const StyledText = styled.div`
   display: flex;
@@ -8,6 +9,10 @@ const StyledText = styled.div`
   height: 70px;
   color: ${(props) => props.theme.color.paragraph};
   font-weight: 400;
+
+  @media ${device.mobile} {
+    font-size: 13px;
+  }
 `;
 
 const Footer = () => {

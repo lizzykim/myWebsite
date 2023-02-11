@@ -4,12 +4,21 @@ import Timelineitem from './timelineitem';
 import { timeLineData } from './timelinedata';
 import { RevealWrapper } from 'next-reveal';
 import { scrollRevealOptions } from '../../../config';
+import device from '../../../theme/breakpoints';
 const WorkWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 100px 100px 100px 100px;
   width: 100%;
+
+  @media ${device.tablet} {
+    padding: 30px 30px 30px 30px;
+  }
+
+  @media ${device.mobile} {
+    padding: 30px 20px 30px 20px;
+  }
 `;
 
 const TimelineList = styled.ul`
