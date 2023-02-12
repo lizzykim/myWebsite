@@ -10,6 +10,26 @@ const navLinks: navLinkProps[] = [
   { name: 'Contact', url: '#contact' },
 ];
 
+type snsLinksProps = {
+  name: string;
+  url: string;
+};
+
+const snsLinks: snsLinksProps[] = [
+  {
+    name: 'LinkedIn',
+    url: 'https://www.linkedin.com/in/kimdayoung',
+  },
+  {
+    name: 'GitHub',
+    url: 'https://github.com/lizzykim',
+  },
+  // {
+  //   name: 'Gmail',
+  //   url: 'kjdayoung@gmail.com',
+  // },
+];
+
 const scrollRevealOptions = {
   origin: 'bottom',
   distance: '50px',
@@ -26,4 +46,4 @@ const scrollRevealOptions = {
   viewOffset: { top: 0, right: 0, bottom: 0, left: 0 },
 };
 
-export { navLinks, scrollRevealOptions };
+export { navLinks, scrollRevealOptions, snsLinks };

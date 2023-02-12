@@ -63,6 +63,7 @@ const StyledDescription = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  text-align: center;
   position: absolute;
   top: 20%;
   left: 90%;
