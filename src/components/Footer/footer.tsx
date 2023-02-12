@@ -15,10 +15,21 @@ const StyledText = styled.div`
   }
 `;
 
+const StyledSpan = styled.span`
+  background: ${(props) => props.theme.color.headline};
+  color: ${(props) => props.theme.color.button};
+  padding: 2px;
+  border-radius: 3px;
+  margin-left: 5px;
+`;
+
 const Footer = () => {
   return (
     <>
-      <StyledText>Designed and Built by Dayoung Kim 🚀</StyledText>
+      <StyledText>
+        Designed and Built by
+        <StyledSpan>Dayoung Kim</StyledSpan> 🚀
+      </StyledText>
     </>
   );
 };
