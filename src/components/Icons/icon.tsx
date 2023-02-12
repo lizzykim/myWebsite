@@ -4,12 +4,20 @@ import IconLinkedin from './linkedin';
 const Icon = ({ name }: { name: string }) => {
   switch (name) {
     case 'LinkedIn':
-      return <IconLinkedin />;
+      return (
+        <span>
+          <IconLinkedin />
+        </span>
+      );
     case 'GitHub':
-      return <IconGitHub />;
+      return (
+        <span>
+          <IconGitHub />
+        </span>
+      );
 
     default:
-      return '';
+      return <div></div>;
   }
 };
 

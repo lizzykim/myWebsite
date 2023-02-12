@@ -34,7 +34,6 @@ const StyledParagraph = styled.div`
 `;
 
 const StyledSubParagraph = styled.div`
-  border: 2px red solid;
   display: flex;
   text-align: center;
   max-width: 500px;
@@ -51,9 +50,79 @@ const StyledFormWrapper = styled.div`
   border: 2px red solid;
 `;
 
+const StyledSNSWrapper = styled.div`
+  display: flex;
+  align-items: center;
+
+  @media ${device.mobile} {
+    flex-direction: column;
+  }
+`;
+
 const StyledContactWrapper = styled.div`
-  border: 2px plum solid;
+  width: 200px;
+  display: flex;
+  justify-content: space-evenly;
   padding: 10px;
+
+  @media ${device.mobile} {
+    width: 150px;
+  }
+
+  div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    background-color: ${(props) => props.theme.color.button};
+    color: ${(props) => props.theme.color.background};
+    border-radius: 10px;
+
+    @media ${device.mobile} {
+      width: 30px;
+      height: 30px;
+    }
+  }
+
+  svg {
+    width: 30px;
+    height: 30px;
+
+    @media ${device.mobile} {
+      width: 20px;
+      height: 20px;
+    }
+
+    &:hover {
+      transform: translateY(-3px);
+      transition: all 0.15s ease-in;
+    }
+  }
+`;
+
+const StyledEmail = styled.div`
+  display: flex;
+  align-items: center;
+  height: 50px;
+  padding: 10px;
+  background-color: ${(props) => props.theme.color.button};
+  color: ${(props) => props.theme.color.background};
+  font-weight: 800;
+  border-radius: 10px;
+  cursor: pointer;
+
+  @media ${device.mobile} {
+    height: 30px;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 12px;
+  }
+
+  &:hover {
+    transform: scale(1.1);
+    transition: all 0.15s ease-in;
+  }
 `;
 
 const Contact = () => {
@@ -66,15 +135,21 @@ const Contact = () => {
         back!
       </StyledSubParagraph>
       <StyledFormWrapper>Form</StyledFormWrapper>
-      <StyledContactWrapper>
-        <ul>
-          {snsLinks.map(({ url, name }) => (
-            <li key={name}>
-              <a href={url}>{/* <Icon name={name}>{name}</Icon> */}</a>
-            </li>
-          ))}
-        </ul>
-      </StyledContactWrapper>
+      <StyledSNSWrapper>
+        <StyledContactWrapper>
+          {snsLinks &&
+            snsLinks.map(({ url, name }) => (
+              <div key={name}>
+                <a href={url} target="_blank" rel="noopener noreferrer">
+                  <Icon name={name} />
+                </a>
+              </div>
+            ))}
+        </StyledContactWrapper>
+        <StyledEmail>
+          <a href="mailto:kjdayoung@gmail.com">Say hello by email!</a>
+        </StyledEmail>
+      </StyledSNSWrapper>
     </ContactWrapper>
   );
 };

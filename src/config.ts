@@ -24,10 +24,6 @@ const snsLinks: snsLinksProps[] = [
     name: 'GitHub',
     url: 'https://github.com/lizzykim',
   },
-  // {
-  //   name: 'Gmail',
-  //   url: 'kjdayoung@gmail.com',
-  // },
 ];
 
 const scrollRevealOptions = {
