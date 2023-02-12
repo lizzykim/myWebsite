@@ -1,7 +1,64 @@
 import styled from 'styled-components';
-import { snsLinks } from '../../../config';
+import css from 'styled-jsx/css';
+import { scrollRevealOptions, snsLinks } from '../../../config';
 import device from '../../../theme/breakpoints';
 import { Icon } from '../../Icons';
+import { useForm } from 'react-hook-form';
+import { RevealWrapper } from 'next-reveal';
+
+const style = css`
+  form {
+    max-width: 100%;
+  }
+
+  input {
+    box-sizing: border-box;
+    width: 100%;
+    border: none;
+    border-radius: 4px;
+    padding: 10px 15px;
+    margin-bottom: 10px;
+    font-size: 14px;
+  }
+
+  .msg {
+    height: 100px;
+  }
+
+  span {
+    color: #bf1650;
+  }
+
+  span::before {
+    display: inline;
+    content: '⚠ ';
+  }
+
+  button[type='submit'],
+  input[type='submit'] {
+    font-family: 'bukhari';
+    background: #f582ae;
+    color: white;
+    text-transform: uppercase;
+    border: none;
+    margin-top: 20px;
+    padding: 20px;
+    font-size: 20px;
+    letter-spacing: 5px;
+  }
+
+  button[type='submit']:hover,
+  input[type='submit']:hover {
+    background: #bf1650;
+  }
+
+  input[type='submit']:active {
+    transition: 0.3s all;
+    transform: translateY(3px);
+    border: 1px solid transparent;
+    opacity: 0.8;
+  }
+`;
 
 const ContactWrapper = styled.div`
   display: flex;
@@ -27,6 +84,7 @@ const StyledParagraph = styled.div`
   color: ${(props) => props.theme.color.headline};
   font-size: 40px;
   font-weight: 700;
+  margin-bottom: 40px;
 
   @media ${device.mobile} {
     font-size: 30px;
@@ -47,12 +105,16 @@ const StyledSubParagraph = styled.div`
 `;
 
 const StyledFormWrapper = styled.div`
-  border: 2px red solid;
+  max-width: 400px;
+  @media ${device.mobile} {
+    max-width: 300px;
+  }
 `;
 
 const StyledSNSWrapper = styled.div`
   display: flex;
   align-items: center;
+  margin-top: 10px;
 
   @media ${device.mobile} {
     flex-direction: column;
@@ -88,6 +150,7 @@ const StyledContactWrapper = styled.div`
   svg {
     width: 30px;
     height: 30px;
+    margin-top: 8px;
 
     @media ${device.mobile} {
       width: 20px;
@@ -104,6 +167,7 @@ const StyledContactWrapper = styled.div`
 const StyledEmail = styled.div`
   display: flex;
   align-items: center;
+  font-family: 'bukhari';
   height: 50px;
   padding: 10px;
   background-color: ${(props) => props.theme.color.button};
@@ -125,32 +189,73 @@ const StyledEmail = styled.div`
   }
 `;
 
+type Inputs = {
+  name: string;
+  email: string;
+  message: string;
+};
+
 const Contact = () => {
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors },
+  } = useForm<Inputs>();
+
+  const onSubmit = (data: Inputs) => {
+    console.log(data);
+    //build api to send data to database
+    reset();
+  };
+
   return (
-    <ContactWrapper id="contact">
-      <StyledParagraph>Get in Touch</StyledParagraph>
-      <StyledSubParagraph>
-        Any questions or want to work together? Not only work suggestions, just
-        ping me to say hi is also welcome! I will try to do my best to reply you
-        back!
-      </StyledSubParagraph>
-      <StyledFormWrapper>Form</StyledFormWrapper>
-      <StyledSNSWrapper>
-        <StyledContactWrapper>
-          {snsLinks &&
-            snsLinks.map(({ url, name }) => (
-              <div key={name}>
-                <a href={url} target="_blank" rel="noopener noreferrer">
-                  <Icon name={name} />
-                </a>
-              </div>
-            ))}
-        </StyledContactWrapper>
-        <StyledEmail>
-          <a href="mailto:kjdayoung@gmail.com">Say hello by email!</a>
-        </StyledEmail>
-      </StyledSNSWrapper>
-    </ContactWrapper>
+    <RevealWrapper className="load-hidden" {...scrollRevealOptions}>
+      <ContactWrapper id="contact">
+        <StyledParagraph>Get in Touch</StyledParagraph>
+        <StyledSubParagraph>
+          Any questions or want to work together? Not only work related, ping me
+          to just say hi is also welcome! I will try to do my best to reply you
+          back!
+        </StyledSubParagraph>
+        <StyledFormWrapper>
+          <form onSubmit={handleSubmit(onSubmit)}>
+            <input
+              placeholder="Name"
+              {...register('name', { maxLength: 20 })}
+            />
+            <input
+              placeholder="Email (Required)"
+              {...register('email', { required: true, min: 9 })}
+            />
+            {errors.email && <span>This email field is required</span>}
+            <input
+              className="msg"
+              placeholder="Your messages (Required)"
+              {...register('message', { required: true })}
+            />
+            {errors.message && <span>This message field is required</span>}
+            <input type="submit" value="Submit" />
+          </form>
+          <style jsx>{style}</style>
+        </StyledFormWrapper>
+        <StyledSNSWrapper>
+          <StyledContactWrapper>
+            {snsLinks &&
+              snsLinks.map(({ url, name }) => (
+                <div key={name}>
+                  <a href={url} target="_blank" rel="noopener noreferrer">
+                    <Icon name={name} />
+                  </a>
+                </div>
+              ))}
+          </StyledContactWrapper>
+          <StyledEmail>
+            <a href="mailto:kjdayoung@gmail.com">Say hello by email!</a>
+          </StyledEmail>
+        </StyledSNSWrapper>
+      </ContactWrapper>
+    </RevealWrapper>
   );
 };
 

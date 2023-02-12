@@ -21,6 +21,7 @@ const StyledSpan = styled.span`
   padding: 2px;
   border-radius: 3px;
   margin-left: 5px;
+  font-weight: 700;
 `;
 
 const Footer = () => {
