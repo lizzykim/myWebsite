@@ -203,9 +203,16 @@ const Contact = () => {
     formState: { errors },
   } = useForm<Inputs>();
 
-  const onSubmit = (data: Inputs) => {
-    console.log(data);
-    //build api to send data to database
+  const onSubmit = async (data: Inputs) => {
+    try {
+      await fetch('/api/addpost', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data),
+      });
+    } catch (error) {
+      console.error(error);
+    }
     reset();
   };
 

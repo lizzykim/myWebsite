@@ -21,7 +21,8 @@
     "**/*.tsx",
     "next.config.js",
     "src/theme/colors.js",
-    "lib/prisma.js"
+    "lib/prisma.js",
+    "pages/api/addPost.tsx"
   ],
   "exclude": ["node_modules"]
 }
