@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import styled from 'styled-components';
 import css from 'styled-jsx/css';
 import { scrollRevealOptions, snsLinks } from '../../../config';
@@ -5,6 +6,7 @@ import device from '../../../theme/breakpoints';
 import { Icon } from '../../Icons';
 import { useForm } from 'react-hook-form';
 import { RevealWrapper } from 'next-reveal';
+import Alert from '../../Alert';
 
 const style = css`
   form {
@@ -195,6 +197,10 @@ type Inputs = {
   message: string;
 };
 
+export type AlertState = {
+  alert: 'success' | 'error';
+};
+
 const Contact = () => {
   const {
     register,
@@ -203,17 +209,29 @@ const Contact = () => {
     formState: { errors },
   } = useForm<Inputs>();
 
+  const [alert, setAlert] = useState<any>();
+  const [openSnackbar, setOpenSnackbar] = useState(false);
+
   const onSubmit = async (data: Inputs) => {
-    try {
-      await fetch('/api/addpost', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(data),
+    fetch('/api/addpost', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data),
+    })
+      .then((response) => {
+        if (response.status >= 200 && response.status <= 299) {
+          setAlert('success');
+          setOpenSnackbar(true);
+        } else {
+          setAlert('error');
+          setOpenSnackbar(true);
+          throw new Error(response.statusText);
+        }
+      })
+      .catch((error) => {
+        setAlert('error');
+        console.log('This is network error', error);
       });
-    } catch (error) {
-      console.error(error);
-    }
-    reset();
   };
 
   return (
@@ -245,6 +263,11 @@ const Contact = () => {
             <input type="submit" value="Submit" />
           </form>
           <style jsx>{style}</style>
+          <Alert
+            status={alert}
+            openSnackbar={openSnackbar}
+            setopenSnackbar={setOpenSnackbar}
+          />
         </StyledFormWrapper>
         <StyledSNSWrapper>
           <StyledContactWrapper>
