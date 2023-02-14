@@ -5,6 +5,7 @@ import CssBaseline from '@mui/material/CssBaseline';
 import Layout from '../src/components/Layout';
 import { DefaultSeo } from 'next-seo';
 import Head from 'next/head';
+import { Analytics } from '@vercel/analytics/react';
 
 export const DEFAULT_SEO = {
   title: 'Dayoung Kim',
@@ -42,6 +43,7 @@ export default function App({ Component, pageProps }: AppProps) {
       <Layout>
         <Component {...pageProps} />
       </Layout>
+      <Analytics />
     </>
   );
 }
