@@ -5,7 +5,6 @@ import { navLinks } from '../../config';
 import { IconButton } from '@material-ui/core';
 import LightModeOutlinedIcon from '@mui/icons-material/LightModeOutlined';
 import DarkModeOutlinedIcon from '@mui/icons-material/DarkModeOutlined';
-import useMediaQuery from '@mui/material/useMediaQuery';
 import device from '../../theme/breakpoints';
 import colors from '../../theme/colors';
 import useScrollDirection from '../../hooks/useScrollDirection';
@@ -97,7 +96,6 @@ type NavbarProps = {
 };
 
 const Navbar = ({ toggleTheme, themeMode }: NavbarProps) => {
-  // const isDesktop = useMediaQuery(`${device.desktop}`);
   const scrollDirection = useScrollDirection();
   const [scrolledToTop, setScrolledToTop] = useState(true);
 
@@ -118,11 +116,6 @@ const Navbar = ({ toggleTheme, themeMode }: NavbarProps) => {
       scrolledToTop={scrolledToTop}
       scrollDirection={scrollDirection}
     >
-      {/* {isDesktop ? (
-        <Logo active={themeMode === 'light'}>L</Logo>
-      ) : (
-        <span>This is too big</span>
-      )} */}
       <Logo active={themeMode === 'light'}>L</Logo>
       <StyledNav>
         <ol>

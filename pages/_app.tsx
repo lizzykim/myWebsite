@@ -1,8 +1,6 @@
 import '../styles/globals.css';
 import type { AppProps } from 'next/app';
 import { MyGlobalStyle } from '../src/theme/globalStyles';
-import { ThemeProvider, useTheme } from 'styled-components';
-import { darkTheme, lightTheme } from '../src/theme/theme';
 import CssBaseline from '@mui/material/CssBaseline';
 import Layout from '../src/components/Layout';
 

@@ -1,4 +1,3 @@
-import React from 'react';
 import styled from 'styled-components';
 import Image from 'next/image';
 import { ProjectsData } from './projectsdata';
@@ -63,6 +62,7 @@ const StyledDescription = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  text-align: center;
   position: absolute;
   top: 20%;
   left: 90%;
