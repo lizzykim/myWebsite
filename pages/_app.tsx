@@ -4,6 +4,7 @@ import { MyGlobalStyle } from '../src/theme/globalStyles';
 import CssBaseline from '@mui/material/CssBaseline';
 import Layout from '../src/components/Layout';
 import { DefaultSeo } from 'next-seo';
+import Head from 'next/head';
 
 export const DEFAULT_SEO = {
   title: 'Dayoung Kim',
@@ -31,7 +32,11 @@ export const DEFAULT_SEO = {
 export default function App({ Component, pageProps }: AppProps) {
   return (
     <>
-      <DefaultSeo {...DEFAULT_SEO} />
+      <Head>
+        <DefaultSeo {...DEFAULT_SEO} />
+        <title>Dayoung Kim</title>
+        <link rel="icon" href="/favicon.png" />
+      </Head>
       <MyGlobalStyle />
       <CssBaseline />
       <Layout>
