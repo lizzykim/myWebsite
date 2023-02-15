@@ -143,11 +143,11 @@ const About = () => {
               startup company. While working at the company, I learned the
               overall understanding of the web development work process and how
               to be a good colleague developer.
-              <br />
-              <br /> When I write my code my priority is to write clean,
-              readable and maintainable code so my peer colleague can easily
-              understand and give immediate feedbacks. Also I enjoy learning new
-              stuffs and patiently solving problems.
+              <br /> <br />
+              When I write my code my priority is to write clean, readable and
+              maintainable code so my peer colleague can easily understand and
+              give immediate feedbacks. Also I enjoy learning new stuffs and
+              patiently solving problems.
               <br /> <br />I am looking for a company that believes in my growth
               potential and leads me to it.
             </StyledText>

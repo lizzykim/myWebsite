@@ -11,6 +11,7 @@ export const MyGlobalStyle = createGlobalStyle`
     text-rendering: optimizeLegibility;
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
+    font-family: "Inter", sans-serif;
   }
 
   body {
@@ -18,7 +19,6 @@ export const MyGlobalStyle = createGlobalStyle`
     font-family: "Inter", sans-serif;
     font-size: 16px;
     font-weight: 400;
-
   }
 
   h1,h2,h3,h4 {

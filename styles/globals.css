@@ -12,6 +12,7 @@ a {
 
 * {
   box-sizing: border-box;
+  font-family: 'Inter', sans-serif;
 }
 
 html.sr .load-hidden {
@@ -69,9 +70,3 @@ html.sr .load-hidden {
   font-weight: 200;
   src: url('/fonts/BukhariScript-Regular.otf') format('truetype');
 }
-
-/* @font-face {
-  font-family: 'inter';
-  font-weight: 200;
-  src: url('/fonts/Inter-Regular.ttf') format('truetype');
-} */
