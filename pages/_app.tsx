@@ -6,6 +6,7 @@ import Layout from '../src/components/Layout';
 import { DefaultSeo } from 'next-seo';
 import Head from 'next/head';
 import { Analytics } from '@vercel/analytics/react';
+import '@fontsource/inter';
 
 export const DEFAULT_SEO = {
   title: 'Dayoung Kim',
@@ -14,7 +15,7 @@ export const DEFAULT_SEO = {
   openGraph: {
     type: 'website',
     locale: 'ko_KR',
-    url: '카카오톡, 페이스북에 링크 넣으면 연결되는 url',
+    url: 'https://dayoungkim.vercel.app',
     title: "Dayoung Kim's Website",
     site_name: 'Dayoung Kim',
     description:
