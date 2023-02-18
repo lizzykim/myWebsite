@@ -169,7 +169,6 @@ const StyledContactWrapper = styled.div`
 const StyledEmail = styled.div`
   display: flex;
   align-items: center;
-  font-family: 'bukhari';
   height: 50px;
   padding: 10px;
   background-color: ${(props) => props.theme.color.button};
@@ -177,6 +176,10 @@ const StyledEmail = styled.div`
   font-weight: 800;
   border-radius: 10px;
   cursor: pointer;
+
+  a {
+    font-family: 'bukhari';
+  }
 
   @media ${device.mobile} {
     height: 30px;

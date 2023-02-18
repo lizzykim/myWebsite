@@ -2,8 +2,7 @@ html,
 body {
   padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-family: 'Inter', sans-serif;
 }
 
 a {
@@ -13,6 +12,7 @@ a {
 
 * {
   box-sizing: border-box;
+  font-family: 'Inter', sans-serif;
 }
 
 html.sr .load-hidden {
@@ -69,10 +69,4 @@ html.sr .load-hidden {
   font-family: 'bukhari';
   font-weight: 200;
   src: url('/fonts/BukhariScript-Regular.otf') format('truetype');
-}
-
-@font-face {
-  font-family: 'inter';
-  font-weight: 200;
-  src: url('/fonts/Inter-Regular.ttf') format('truetype');
 }

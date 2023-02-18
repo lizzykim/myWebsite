@@ -40,6 +40,15 @@ const animate = keyframes`
 const TimelineItem = styled.div`
   position: relative;
   padding: 28px 20px;
+
+  ${Contents} {
+    &::before {
+      content: '▹';
+      font-size: 20px;
+      color: ${(props) => props.theme.color.button};
+    }
+  }
+
   &:hover {
     background: rgba(105, 105, 105, 0.2);
 
@@ -99,12 +108,9 @@ const Timelineitem = (props: TimeLineData) => {
             <span>{props.name}</span>
           )}
         </Title>
-        <Contents>
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Unde eos
-          fuga earum deleniti adipisci recusandae a aliquam inventore rem aut
-          sint nobis doloremque, tempora laboriosam, tempore optio beatae
-          reprehenderit distinctio!
-        </Contents>
+        {props.content.map((data, i) => (
+          <Contents key={i}>{data}</Contents>
+        ))}
       </TimelineItem>
     </TimelineItemContainer>
   );

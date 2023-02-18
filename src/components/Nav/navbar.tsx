@@ -73,7 +73,7 @@ const StyledNav = styled.div`
   display: flex;
   align-items: center;
   font-size: 20px;
-  font-weight: 500;
+  font-weight: 600;
 
   @media ${device.tablet} {
     display: none;
