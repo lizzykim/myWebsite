@@ -63,7 +63,7 @@ const Intro = () => {
           <br />
           Dayoung Kim.
           <br />
-          I’m a Junior Frontend Developer
+          I’m a Frontend Developer
         </StyledText>
       </RevealWrapper>
       <a href="/Resume.pdf" target="_blank" rel="noopener noreferrer">
