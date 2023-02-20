@@ -1,13 +1,14 @@
 import Snackbar from '@mui/material/Snackbar';
-import MuiAlert, { AlertProps } from '@mui/material/Alert';
-import { AlertState } from './Sections/Contact/contact';
-import { useState } from 'react';
+import MuiAlert from '@mui/material/Alert';
+import { Dispatch, SetStateAction } from 'react';
 
 type AlertsProps = {
-  status: AlertState | undefined;
+  status: any;
+  openSnackbar: boolean;
+  setopenSnackbar: Dispatch<SetStateAction<boolean>>;
 };
 
-const Alert = ({ status, openSnackbar, setopenSnackbar }: any) => {
+const Alert = ({ status, openSnackbar, setopenSnackbar }: AlertsProps) => {
   const handleClose = () => {
     setopenSnackbar(false);
   };

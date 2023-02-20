@@ -113,6 +113,7 @@ const StyledSkill = styled.div`
 
 const StyledNotionAnchor = styled.a`
   align-self: center;
+
   :hover {
     transform: translateY(-10px);
     transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
@@ -138,7 +139,6 @@ const ProjectItem = (props: ProjectsData) => {
                 href={props.link}
                 target="_blank"
                 rel="noopener noreferrer"
-                style={{ alignSelf: 'center' }}
               >
                 <Image
                   src="/img/notion.png"

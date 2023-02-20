@@ -200,15 +200,10 @@ type Inputs = {
   message: string;
 };
 
-export type AlertState = {
-  alert: 'success' | 'error';
-};
-
 const Contact = () => {
   const {
     register,
     handleSubmit,
-    reset,
     formState: { errors },
   } = useForm<Inputs>();
 

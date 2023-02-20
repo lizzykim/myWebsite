@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef } from 'react';
 import Link from 'next/link';
 import styled from 'styled-components';
 import device from '../../theme/breakpoints';
@@ -136,6 +136,11 @@ const StyledAsideNavText = styled.div`
   }
 `;
 
+const StyledList = styled.ol`
+  border: 2px red solid;
+  padding: 0;
+`;
+
 type MenuProps = {
   toggleTheme: () => void;
   themeMode: string;
@@ -159,7 +164,7 @@ const Menu = ({ toggleTheme, themeMode }: MenuProps) => {
         </StyledHamburgerButton>
         <StyledAsidebar menuOpen={menuOpen}>
           <StyledAsideNavWrapper>
-            <ol style={{ padding: 0 }}>
+            <StyledList>
               {navLinks.map(({ name, url }, i) => (
                 <StyledAsideNavText key={i} onClick={toggleMenu}>
                   <Link href={url}>
@@ -167,7 +172,7 @@ const Menu = ({ toggleTheme, themeMode }: MenuProps) => {
                   </Link>
                 </StyledAsideNavText>
               ))}
-            </ol>
+            </StyledList>
             {themeMode === 'light' ? (
               <IconButton
                 aria-label="mode"
