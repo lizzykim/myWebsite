@@ -137,7 +137,6 @@ const StyledAsideNavText = styled.div`
 `;
 
 const StyledList = styled.ol`
-  border: 2px red solid;
   padding: 0;
 `;
 

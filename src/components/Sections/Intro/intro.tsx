@@ -38,14 +38,21 @@ const StyledText = styled.div`
 `;
 
 const StyledButton = styled.button`
-  width: 100px;
-  height: 40px;
-  border-radius: 4px;
-  border: 2px solid ${(props) => props.theme.color.button};
+  width: 200px;
+  height: 80px;
+  border-radius: 10px;
+  border: 4px solid ${(props) => props.theme.color.button};
   color: ${(props) => props.theme.color.button};
-  font-size: 16px;
+  font-size: 30px;
   font-weight: 500;
   background-color: transparent;
+
+  @media ${device.mobile} {
+    width: 150px;
+    height: 60px;
+    border: 3px solid ${(props) => props.theme.color.button};
+    font-size: 20px;
+  }
 
   :hover {
     background-color: ${(props) => props.theme.color.background_light_shadow};
@@ -65,7 +72,7 @@ const Intro = () => {
           I’m a Frontend Developer
         </StyledText>
       </RevealWrapper>
-      <a href="/Resume.pdf" target="_blank" rel="noopener noreferrer">
+      <a href="/ResumeKR.pdf" target="_blank" rel="noopener noreferrer">
         <StyledButton>Resume</StyledButton>
       </a>
     </IntroWrapper>
